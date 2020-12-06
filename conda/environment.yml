@@ -12,3 +12,4 @@ dependencies:
     - nltk
     - bs4
     - seaborn
+    - xgboost

@@ -60,4 +60,4 @@ class CleanTweets(BaseEstimator, TransformerMixin):
         phrase = re.sub(r"\'t", " not", phrase)
         phrase = re.sub(r"\'ve", " have", phrase)
         phrase = re.sub(r"\'m", " am", phrase)
-    return phrase
+        return phrase
