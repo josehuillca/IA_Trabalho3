@@ -1,0 +1,36 @@
+FROM lmdcuff/base-ia:1.0
+
+RUN apt-get update && \
+    apt-get install -y \
+        nano \
+        git \
+        wget \
+        curl \
+        zip \
+        unzip \
+        libaio1 \
+        libsm6 \
+        libxext6 \
+        iptables \
+        libfontconfig1 \
+        libxrender1 \
+        libsasl2-modules-gssapi-mit && \
+    apt-get clean
+ 
+ENV PATH="/root/miniconda3/bin:${PATH}"
+ARG PATH="/root/miniconda3/bin:${PATH}"
+RUN apt-get update
+
+COPY environment.yml .
+RUN conda env create -f environment.yml
+
+WORKDIR /workspace
+
+# BUILD:
+# docker build -t pyia:local .
+# EXECUTE:
+# cd GitHub/IA_Trabalho3
+# docker run -it -p 8082:8082 -v $PWD:/workspace pyia:local bash
+
+# source activate pyia
+# jupyter notebook --allow-root --ip=0.0.0.0 --port 8082

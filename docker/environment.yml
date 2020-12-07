@@ -1,0 +1,17 @@
+name: pyia
+channels:
+  - conda-forge
+dependencies:
+  - python=3.8
+  - pip:
+    - jupyter
+    - category-encoders
+    - scipy
+    - scikit-learn
+    - pandas
+    - nltk
+    - bs4
+    - seaborn
+    - xgboost
+    - html5lib
+    - lxml
